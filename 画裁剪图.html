@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #canvas {
+            background: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="800" height="500"></canvas>
+</body>
+<script src="./utils.js"></script>
+<script>
+    let canvas = document.querySelector('canvas')
+    let ctx = canvas.getContext('2d')
+
+    let img = new Image()
+    img.src = './09.jpg'
+
+    img.onload = function () {
+        //对象， 图片起始坐标，宽和高，裁图的起始坐标，裁的宽和高
+        ctx.drawImage(this, 100, 100, 500, 313, 200, 200, 300, 150)
+    }
+</script>
+</html>

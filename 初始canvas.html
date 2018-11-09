@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #canvas {
+            background: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="500"></canvas>
+</body>
+<script>
+    let canvas = document.querySelector('canvas')
+    let ctx = canvas.getContext('2d'); //2d是平面， 3d是webgl
+
+    //起点
+    ctx.moveTo(100, 100)
+    //终点
+    ctx.lineTo(800, 100)
+    //画线的样式
+    ctx.strokeStyle = '#f00'
+    //画线
+    ctx.stroke()
+
+    setTimeout(() => {
+    // 不想重画，必须新的路线
+        ctx.beginPath()
+        ctx.moveTo(100, 150)
+        ctx.lineTo(800, 150)
+        ctx.strokeStyle = '#ff0'
+        //上面如果没有新的路线，它会在上面红色的线上在画一条黄色的线
+        ctx.stroke()
+    },2000)
+
+    ctx.moveTo(100, 100)
+    ctx.lineTo(500, 100)
+    //这里还可以接着画
+    ctx.lineTo(500, 300)
+    //闭合，起点和终点连起来
+    ctx.closePath()
+    ctx.strokeStyle = '#f00'
+    //改变填充色
+    ctx.fillStyle = '#f00'
+    //填充，默认黑色
+    ctx.fill()
+    //画线
+    ctx.stroke()
+
+</script>
+</html>

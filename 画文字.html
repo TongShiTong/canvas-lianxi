@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #canvas {
+            background: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="800" height="500"></canvas>
+</body>
+<script src="./utils.js"></script>
+<script>
+    let canvas = document.querySelector('canvas')
+    let ctx = canvas.getContext('2d')
+
+    ctx.moveTo(0, 100)
+    ctx.lineTo(800, 100)
+    // ctx.beginPath()
+    //还得输入写字的坐标
+    //字的大小,对齐方式
+    ctx.textBaseline =  'middle'
+    ctx.font = '20px 微软雅黑'
+    //镂空字
+    // ctx.strokeText('我是一段文字', 0, 100)
+    ctx.fillText('我是一段文字', 0, 100) //默认基线textBaseline
+    ctx.stroke()
+</script>
+</html>

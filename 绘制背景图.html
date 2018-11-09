@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #canvas {
+            background: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="800" height="800"></canvas>
+</body>
+<script src="./utils.js"></script>
+<script>
+    let canvas = document.querySelector('canvas')
+    let ctx = canvas.getContext('2d')
+
+    //画背景图
+    let img = new Image()
+    img.src = './10.jpg'
+    img.onload = function () {
+        //对象，平铺方式 把背景当成颜色
+        let color = ctx.createPattern(this, 'repeat-x')
+        ctx.fillStyle = color
+        ctx.rect(0, 0, 500, 500)
+        ctx.fill()
+        ctx.stroke()
+
+        //可以在背景图上画东西
+        ctx.beginPath()
+        ctx.rect(100, 100, 100, 100)
+        ctx.fillStyle = 'skyblue'
+        ctx.fill()
+        ctx.stroke()
+    }
+
+
+</script>
+</html>

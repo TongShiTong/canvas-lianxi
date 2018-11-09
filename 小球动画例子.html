@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #canvas {
+            background: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="800" height="800"></canvas>
+</body>
+<script src="./utils.js"></script>
+<script>
+    let canvas = document.querySelector('canvas')
+    let ctx = canvas.getContext('2d')
+    let _rectL = 100
+    let _rectT = 100
+    let vx = 2
+    let vy = 4
+
+    function go() {
+        ctx.clearRect(0, 0, 800, 800)
+        ctx.beginPath()
+        ctx.arc(_rectL, _rectT, 10, getRad(0), getRad(360))
+
+        //渐变色
+        // let color = ctx.createRadialGradient(
+        //     _rectL,
+        //     _rectT,
+        //     0,
+        //     _rectL,
+        //     _rectT,
+        //     20
+        // )
+        // color.addColorStop(0, "#fff")
+        // color.addColorStop(1, "#000")
+        // ctx.fillStyle = color
+
+        ctx.fillStyle = '#f0f'
+        ctx.fill()
+        ctx.stroke()
+        _rectL += vx
+        _rectT += vy
+        requestAnimationFrame(go)
+        if(_rectL>800-20 || _rectL<20){
+            vx = -vx
+        }
+        if(_rectT>800-20 || _rectT<20){
+            vy = -vy
+        }
+    }
+    requestAnimationFrame(go)
+
+
+</script>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #canvas {
+            background: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<canvas id="canvas" width="800" height="800"></canvas>
+</body>
+<script src="./utils.js"></script>
+<script>
+    let canvas = document.querySelector('canvas')
+    let ctx = canvas.getContext('2d')
+
+    //创建一个图片对象
+    let img = new Image()
+    img.src = './09.jpg'
+    let littleImg = new Image()
+    littleImg.src = './10.jpg'
+    
+    //加载完再画
+    img.onload = function () {
+        //对象，起始坐标，图片宽和高
+        ctx.drawImage(this, 100, 100)
+        //图片加载完
+        littleImg.onload = function() {
+            ctx.drawImage(littleImg, 100, 500, 200, 100)
+            // 把上面两张图合成一张图， 后面，格式，压缩率
+            let newImage = canvas.toDataURL('image/jpg', 0.9)
+            //base64转化
+            let allImg = new Image()
+            allImg.src = newImage
+            document.getElementById('box').appendChild(allImg)
+        }
+    }
+</script>
+</html>

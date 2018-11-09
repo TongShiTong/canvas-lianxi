@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #canvas {
+            background: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="800" height="500"></canvas>
+</body>
+<script src="./utils.js"></script>
+<script>
+    let canvas = document.querySelector('canvas')
+    let ctx = canvas.getContext('2d')
+
+    //圆心坐标，半径，起始度数，结束度数， 顺逆时针布尔值true是逆时针为默认
+    // ctx.arc(300, 300, 100, getRad(0), getRad(360))
+    // ctx.fillStyle = '#f00'
+    // ctx.fill()
+    // ctx.stroke()
+
+    //画一个扇形
+    //得先给个圆心坐标
+    ctx.moveTo(300, 300)
+    ctx.arc(300, 300, 100, getRad(0), getRad(60))
+    ctx.fillStyle = '#f00'
+    ctx.fill()
+    ctx.stroke()
+</script>
+</html>

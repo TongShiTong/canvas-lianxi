@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #canvas {
+            background: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="800" height="500"></canvas>
+</body>
+<script>
+    let canvas = document.querySelector('canvas')
+    let ctx = canvas.getContext('2d')
+
+    //矩形，起点坐标x,y,宽和高,,宽和高相等就是正方形
+    // ctx.rect(100, 100, 300, 100)
+    //填充
+    // ctx.fillStyle = 'skyblue'
+    // ctx.fill()
+    //画
+    // ctx.stroke()
+
+
+    //上面的可以简写
+    ctx.fillStyle = 'skyblue'
+    ctx.fillRect(100, 100, 300, 100)
+    ctx.stroke()
+</script>
+</html>

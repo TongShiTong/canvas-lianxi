@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #canvas {
+            background: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<canvas id="canvas" width="800" height="800"></canvas>
+</body>
+<script src="./utils.js"></script>
+<script>
+    let canvas = document.querySelector('canvas')
+    let ctx = canvas.getContext('2d')
+    let _rectL = 0
+    let vx = 5
+
+    // setInterval(function () {
+    //     ctx.clearRect(0, 0, canvas.width, canvas.height)
+    //     ctx.beginPath()
+    //     ctx.rect(_rectL, 0, 100, 200)
+    //     ctx.stroke()
+    //     _rectL += 1
+    // }, 16)
+
+    requestAnimationFrame(go)
+    function go() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height)
+            ctx.beginPath()
+            ctx.rect(_rectL, 0, 100, 200)
+            ctx.fillStyle = 'skyblue'
+            ctx.fill()
+            ctx.stroke()
+            _rectL += vx
+        requestAnimationFrame(go)
+        if(_rectL>700 || _rectL<0){
+                vx = -vx
+        }
+    }
+
+</script>
+</html>

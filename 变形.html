@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #canvas {
+            background: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="800" height="500"></canvas>
+</body>
+<script src="./utils.js"></script>
+<script>
+    let canvas = document.querySelector('canvas')
+    let ctx = canvas.getContext('2d')
+
+    //先位移在旋转
+    // ctx.translate(100, 100)
+    // ctx.rotate(getRad(30))
+    // ctx.rect(0, 0, 200, 100)
+    // ctx.fillStyle = '#f00'
+    // ctx.fill()
+    // ctx.stroke()
+
+    //变大,1倍，2倍
+    ctx.scale(1, 2)
+    ctx.rect(100, 100, 200, 100)
+    ctx.fillStyle = '#f00'
+    ctx.fill()
+    ctx.stroke()
+</script>
+</html>
